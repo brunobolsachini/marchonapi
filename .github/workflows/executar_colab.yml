@@ -1,0 +1,34 @@
+
+name: Executar Script Diariamente
+
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Executa diariamente às 9h (UTC-3)
+  workflow_dispatch:  # Permite execução manual
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+
+      - name: Configurar Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Use a versão desejada
+
+      - name: Instalar dependências
+        run: |
+          pip install requests paramiko pandas pytz Flask openpyxl psutil  # Adicione todas as dependências necessárias
+
+      - name: Executar o marchon
+        run: python marchon.py  # Substitua pelo nome do seu arquivo
+
+      - name: Executar Marchon10
+        run: python marchon10.py
