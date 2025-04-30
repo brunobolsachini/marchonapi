@@ -361,7 +361,7 @@ def main():
 
     # Enviar o e-mail com o relatório e resumo do estoque
     enviar_email_com_anexo(
-        "victor@compreoculos.com.br",
+        "bruno@compreoculos.com.br",
         "Relatório de Estoque",
         mensagem_email,
         os.path.join(os.path.dirname(__file__), "resultado_correspondencias.xlsx")
@@ -373,8 +373,8 @@ def main():
 
 def enviar_email_com_anexo(destinatario, assunto, mensagem, anexo_path):
     """Envia um e-mail com um arquivo anexo."""
-    remetente = "victor@compreoculos.com.br"  # Altere para seu e-mail
-    senha = "hhhlzwcyucmjdqqb"  # Use um App Password ou método seguro para armazenar credenciais
+    remetente = "bruno@compreoculos.com.br"  # Altere para seu e-mail
+    senha = "diwihenjpuuoxnwc"  # Use um App Password ou método seguro para armazenar credenciais
 
     msg = MIMEMultipart()
     msg["From"] = remetente
