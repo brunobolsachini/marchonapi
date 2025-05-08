@@ -20,7 +20,7 @@ from email import encoders
 ATIVAR_CORTE_ESTOQUE = False
 
 # Definição do ID do depósito
-DEPOSITO_ID = 14888163276  # Substitua pelo ID do depósito desejado
+DEPOSITO_ID = 10881321536  # Substitua pelo ID do depósito desejado
 
 # Definir o caminho para o repositório "marchon"
 MARCHON_FOLDER = os.path.join(os.getcwd(), 'marchon')  # Obtém o diretório atual
