@@ -39,7 +39,7 @@ logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format="%(asctime)s -
 SFTP_HOST = 'sftp.marchon.com.br'
 SFTP_PORT = 2221
 SFTP_USERNAME = 'CompreOculos'
-SFTP_PASSWORD = '@CMPCLS$2023'
+SFTP_PASSWORD = '@CMPCLS$2025'
 REMOTE_DIR = 'COMPREOCULOS/ESTOQUE'
 FILE_TO_CHECK = 'estoque_disponivel.csv'
 
