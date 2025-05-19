@@ -17,10 +17,10 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 # Ativa ou desativa o corte de estoque
-ATIVAR_CORTE_ESTOQUE = False
+ATIVAR_CORTE_ESTOQUE = True
 
 # Valor mínimo de estoque. Se o estoque for menor que esse valor, será considerado 0.
-CORTE_ESTOQUE_MINIMO = 5  # Modifique conforme necessário
+CORTE_ESTOQUE_MINIMO = 2  # Modifique conforme necessário
 
 # Definição do ID do depósito
 DEPOSITO_ID = 10881321536  # Substitua pelo ID do depósito desejado
