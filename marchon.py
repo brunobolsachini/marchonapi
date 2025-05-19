@@ -135,7 +135,7 @@ def buscar_correspondencias(sftp_df, usuario_df):
         print("🚫 Corte de estoque desativado.")
 
     # Filtrar apenas os produtos com balanço maior que zero
-    resultado = resultado[resultado['balanco'] > 0]
+    # resultado = resultado[resultado['balanco'] > 0]
 
     # Ordenar os resultados pelo 'balanco' em ordem decrescente
     resultado = resultado.sort_values(by='balanco', ascending=False)
