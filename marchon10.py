@@ -20,7 +20,7 @@ from email import encoders
 ATIVAR_CORTE_ESTOQUE = False
 
 # Valor mínimo de estoque. Se o estoque for menor que esse valor, será considerado 0.
-CORTE_ESTOQUE_MINIMO = 5  # Modifique conforme necessário
+CORTE_ESTOQUE_MINIMO = 0  # Modifique conforme necessário
 
 # Definição do ID do depósito
 DEPOSITO_ID = 10881321536
