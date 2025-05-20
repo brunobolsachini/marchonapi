@@ -23,7 +23,7 @@ ATIVAR_CORTE_ESTOQUE = False
 CORTE_ESTOQUE_MINIMO = 0  # Modifique conforme necessário
 
 # Definição do ID do depósito
-DEPOSITO_ID = 10881321536
+DEPOSITO_ID = 14886798357
 
 # Definir o caminho para o repositório "marchon"
 MARCHON_FOLDER = os.path.join(os.getcwd(), 'marchon')
@@ -42,7 +42,7 @@ SFTP_PORT = 2221
 SFTP_USERNAME = 'CompreOculos'
 SFTP_PASSWORD = '@CMPCLS$2025'
 REMOTE_DIR = 'COMPREOCULOS/ESTOQUE'
-FILE_TO_CHECK = 'estoque_disponivel.csv'
+FILE_TO_CHECK = 'estoque_disponivel_10.csv'
 
 # Configuração da API
 API_URL = 'https://api.bling.com.br/Api/v3/estoques'
@@ -320,9 +320,9 @@ def main():
 
     enviar_email_com_anexo(
         "bruno@compreoculos.com.br",
-        "Relatório de Estoque",
+        "Relatório de Estoque Marchon 10",
         mensagem_email,
-        os.path.join(os.path.dirname(__file__), "resultado_correspondencias.xlsx")
+        os.path.join(os.path.dirname(__file__), "resultado_correspondencias_Marchon10.xlsx")
     )
 
     print(f"\n✅ Total de IDs processados e subidos: {resultados.shape[0]}")
