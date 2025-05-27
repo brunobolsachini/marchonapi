@@ -258,7 +258,7 @@ def obter_access_token():
 
 def enviar_email_com_anexo(destinatario, assunto, mensagem, anexo_path):
     remetente = "bruno@compreoculos.com.br"
-    senha = "diwihenjpuuoxnwc"
+    senha = "hahv igdx ytht ujqx"
     msg = MIMEMultipart()
     msg["From"] = remetente
     msg["To"] = destinatario
