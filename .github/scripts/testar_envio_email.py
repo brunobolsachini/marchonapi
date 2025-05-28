@@ -1,23 +1,30 @@
-name: Testar Envio E-mail
+import os
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
-on:
-  workflow_dispatch:
+remetente = 'bruno@compreoculos.com.br'
+destinatario = 'bruno@compreoculos.com.br'
+senha = os.getenv('SENHA_API')
 
-jobs:
-  test-email:
-    runs-on: ubuntu-latest
+if not senha:
+    print('❌ SENHA_API não está definida no ambiente!')
+    exit(1)
 
-    env:
-      SENHA_API: ${{ secrets.SENHA_API }}
+msg = MIMEMultipart()
+msg['From'] = remetente
+msg['To'] = destinatario
+msg['Subject'] = 'Teste de envio de e-mail via GitHub Actions'
+mensagem = '✅ Este é um teste de envio de e-mail via GitHub Actions.'
+msg.attach(MIMEText(mensagem, 'plain'))
 
-    steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v2
-
-      - name: Configurar Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Testar envio de e-mail
-        run: python .github/scripts/testar_envio_email.py
+try:
+    servidor = smtplib.SMTP('smtp.gmail.com', 587)
+    servidor.starttls()
+    servidor.login(remetente, senha)
+    servidor.sendmail(remetente, destinatario, msg.as_string())
+    servidor.quit()
+    print('✅ E-mail enviado com sucesso!')
+except Exception as e:
+    print(f'❌ Erro ao enviar e-mail: {e}')
+    exit(1)
