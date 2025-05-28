@@ -1,49 +1,24 @@
-name: Testar Envio E-mail
-
-on:
-  workflow_dispatch:  # Permite execução manual pelo GitHub Actions
-
-jobs:
-  test-email:
-    runs-on: ubuntu-latest
-
-    env:
-      SENHA_API: ${{ secrets.SENHA_API }}
-
-    steps:
-      - name: Checkout do repositório
-        uses: actions/checkout@v2
-
-      - name: Configurar Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Instalar dependências
-        run: |
-          pip install smtplib email
-
-      - name: Testar envio de e-mail
-        run: |
-          python - <<EOF
+- name: Testar envio de e-mail
+  run: |
+    python -c "
 import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-remetente = "bruno@compreoculos.com.br"
-destinatario = "bruno@compreoculos.com.br"
-senha = os.getenv("SENHA_API")
+remetente = 'bruno@compreoculos.com.br'
+destinatario = 'bruno@compreoculos.com.br'
+senha = os.getenv('SENHA_API')
 
 if not senha:
-    print("❌ SENHA_API não está definida no ambiente!")
+    print('❌ SENHA_API não está definida no ambiente!')
     exit(1)
 
 msg = MIMEMultipart()
 msg['From'] = remetente
 msg['To'] = destinatario
-msg['Subject'] = "Teste de envio de e-mail via GitHub Actions"
-mensagem = "✅ Este é um teste de envio de e-mail via GitHub Actions."
+msg['Subject'] = 'Teste de envio de e-mail via GitHub Actions'
+mensagem = '✅ Este é um teste de envio de e-mail via GitHub Actions.'
 msg.attach(MIMEText(mensagem, 'plain'))
 
 try:
@@ -52,8 +27,8 @@ try:
     servidor.login(remetente, senha)
     servidor.sendmail(remetente, destinatario, msg.as_string())
     servidor.quit()
-    print("✅ E-mail enviado com sucesso!")
+    print('✅ E-mail enviado com sucesso!')
 except Exception as e:
-    print(f"❌ Erro ao enviar e-mail: {e}")
+    print(f'❌ Erro ao enviar e-mail: {e}')
     exit(1)
-EOF
+"
