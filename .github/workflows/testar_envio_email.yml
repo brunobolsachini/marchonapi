@@ -1,6 +1,8 @@
 name: Testar Envio E-mail
 
 on:
+  schedule:
+    - cron: '0 08 * * *'  # Executa diariamente às 9h (UTC-3)
   workflow_dispatch:
 
 jobs:
