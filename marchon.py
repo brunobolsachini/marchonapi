@@ -28,7 +28,7 @@ LOG_FILE = os.path.join("log_envio_api.log")
 logging.basicConfig(filename=LOG_FILE, level=logging.INFO, format="%(asctime)s - %(message)s")
 
 SFTP_HOST = 'sftp.marchon.com.br'
-SFTP_PORT = 2221
+SFTP_PORT = 990
 SFTP_USERNAME = 'CompreOculos'
 SFTP_PASSWORD = '@CMPCLS$2025'
 REMOTE_DIR = 'COMPREOCULOS/ESTOQUE'
